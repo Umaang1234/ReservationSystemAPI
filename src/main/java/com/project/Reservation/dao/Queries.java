@@ -10,4 +10,8 @@ public final class Queries {
             "(`to_date`, `from_date`, `to_km`, `from_km`, `to_station` , `from_station` , `Train_code`)" +
             " VALUES (?, ?, ?, ?, ?, ?, ?)";
 
+    public static final String SELECT_BOOKING_BY_PNR = "SELECT * FROM trainreservationsystem.ticket_reservation where PNR_no=?";
+
+    public static final String DELETE_BOOKING_BY_PNR = "DELETE FROM trainreservationsystem.ticket_reservation where PNR_no=?";
+
 }

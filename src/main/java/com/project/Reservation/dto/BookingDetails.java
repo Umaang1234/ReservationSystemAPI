@@ -2,6 +2,7 @@ package com.project.Reservation.dto;
 
 
 public class BookingDetails {
+    Long pnr;
     String to_date;
     String from_date;
     double to_km;
@@ -10,6 +11,27 @@ public class BookingDetails {
     String from_station;
 
     String train_code;
+
+    public BookingDetails() {
+    }
+
+    public BookingDetails(String to_date , String from_date , double to_km, double from_km, String to_station, String from_station, String train_code) {
+        this.to_date = to_date;
+        this.from_date =  from_date;
+        this.to_km = to_km;
+        this.from_km= from_km;
+        this.to_station = to_station;
+        this.from_station = from_station;
+        this.train_code =train_code;
+    }
+
+    public Long getPnr() {
+        return pnr;
+    }
+
+    public void setPnr(Long pnr) {
+        this.pnr = pnr;
+    }
 
     public String getTo_date() {
         return to_date;

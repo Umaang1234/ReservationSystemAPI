@@ -5,6 +5,8 @@ import com.project.Reservation.dto.BookingDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookingServiceImpl implements BookingService {
     @Autowired
@@ -13,4 +15,17 @@ public class BookingServiceImpl implements BookingService {
     public void saveBooking(BookingDetails bookingDetails) {
         bookingDao.saveBooking(bookingDetails);
     }
+
+    @Override
+    public BookingDetails getBookingByPnr(Long pnr) {
+        return bookingDao.getBookingByPnr(pnr);
+    }
+
+    @Override
+    public void deleteBookingByPnr(Long pnr) {
+        bookingDao.deleteBookingByPnr(pnr);
+    }
+
+
+
 }
