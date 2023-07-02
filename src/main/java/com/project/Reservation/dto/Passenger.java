@@ -8,6 +8,18 @@ public class Passenger {
     double fare;
     String seat_no;
 
+    public Passenger() {
+    }
+
+    public Passenger(int id, String passenger_name, int age, String passenger_sex, double fare, String seat_no) {
+        this.id = id;
+        this.passenger_name = passenger_name;
+        this.age = age;
+        this.passenger_sex = passenger_sex;
+        this.fare = fare;
+        this.seat_no = seat_no;
+    }
+
     public String getPassenger_name() {
         return passenger_name;
     }

@@ -1,16 +1,11 @@
 package com.project.Reservation.dao;
 
 import com.project.Reservation.dto.BookingDetails;
+import com.project.Reservation.dto.Passenger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -37,7 +32,8 @@ public class BookingDaoImpl implements BookingDao{
 
     @Override
     public BookingDetails getBookingByPnr(Long pnr) {
-        Map<String,Object> map =this.jdbcTemplate.queryForMap(Queries.SELECT_BOOKING_BY_PNR,pnr);
+        Map<String,Object> map =this.jdbcTemplate.queryForMap(Queries.SELECT_BOOKING_DETAILS_WITH_PAXINFO,pnr);
+        Passenger passenger = new Passenger((Integer) map.get("Passenger_id"), (String) map.get("PAX_name"), (Integer) map.get("PAX_age"), (String) map.get("PAX_sex"), (Double) map.get("fare"), (String) map.get("Seat_No"));
         BookingDetails bookingDetails =new BookingDetails();
         bookingDetails.setPnr((Long) map.get("PNR_no"));
         bookingDetails.setTo_date((String) map.get("to_date"));
@@ -47,6 +43,7 @@ public class BookingDaoImpl implements BookingDao{
         bookingDetails.setTo_station((String) map.get("to_station"));
         bookingDetails.setFrom_station((String) map.get("from_station"));
         bookingDetails.setTrain_code((String) map.get("train_code"));
+        bookingDetails.setPassenger(passenger);
         return bookingDetails;
     }
 
