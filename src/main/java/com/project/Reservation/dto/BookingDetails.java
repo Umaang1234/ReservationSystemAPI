@@ -12,10 +12,12 @@ public class BookingDetails {
 
     String train_code;
 
+    Passenger passenger;
+
     public BookingDetails() {
     }
 
-    public BookingDetails(String to_date , String from_date , double to_km, double from_km, String to_station, String from_station, String train_code) {
+    public BookingDetails(String to_date , String from_date , double to_km, double from_km, String to_station, String from_station, String train_code, Passenger passenger) {
         this.to_date = to_date;
         this.from_date =  from_date;
         this.to_km = to_km;
@@ -23,6 +25,7 @@ public class BookingDetails {
         this.to_station = to_station;
         this.from_station = from_station;
         this.train_code =train_code;
+        this.passenger = passenger;
     }
 
     public Long getPnr() {
@@ -87,6 +90,14 @@ public class BookingDetails {
 
     public void setTrain_code(String train_code) {
         this.train_code = train_code;
+    }
+
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
     }
 
     @Override

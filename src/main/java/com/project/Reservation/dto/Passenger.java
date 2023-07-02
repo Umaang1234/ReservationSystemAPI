@@ -1,6 +1,7 @@
 package com.project.Reservation.dto;
 
 public class Passenger {
+    int id;
     String passenger_name;
     int age;
     String passenger_sex;
@@ -45,6 +46,14 @@ public class Passenger {
 
     public void setSeat_no(String seat_no) {
         this.seat_no = seat_no;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

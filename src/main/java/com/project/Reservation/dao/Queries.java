@@ -14,4 +14,7 @@ public final class Queries {
 
     public static final String DELETE_BOOKING_BY_PNR = "DELETE FROM trainreservationsystem.ticket_reservation where PNR_no=?";
 
+    public static final String UPDATE_PNR_PAXINFO = "UPDATE `trainreservationsystem`.`pax_info` SET `PNR` = ? WHERE (`Passenger_id` = ?)";
+
+    public static final String SELECT_LAST_PASSENGER = "SELECT last_insert_id()";
 }
